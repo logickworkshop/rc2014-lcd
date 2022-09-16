@@ -17,6 +17,18 @@ Note that at the nominal 7.3728Mhz clock speed of the RC2014, the enable
 signal will only be held for about 68ns. Check the timing diagram in your LCD
 display module's datasheet to ensure compatibility.
 
+### Bill of Materials
+
+* 74HCT138N (PDIP16)
+* 74HCT04N (PDIP14)
+* 2 x 0.1uF ceramic capacitor (axial, 5mm lead spacing)
+* 10K linear potentiometer
+* 39-pin single right-angle 0.1" header
+* 16-pin double straight 0.1" header
+* 16-pin single straight 0.1" header
+* 16-pin DIP socket (optional)
+* 14-pin DIP socket (optional)
+
 ## The Code
 
 The example program `LCD.ZSM` is designed to work on CP/M, and can be built
