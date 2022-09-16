@@ -22,7 +22,7 @@ display module's datasheet to ensure compatibility.
 * 74HCT138N (PDIP16)
 * 74HCT04N (PDIP14)
 * 2 x 0.1uF ceramic capacitor (radial, 5mm lead spacing)
-* 10K linear potentiometer
+* 10K linear trim potentiometer (single turn, B25P footprint)
 * 39-pin single right-angle 0.1" header
 * 16-pin double straight 0.1" header
 * 16-pin single straight 0.1" header
