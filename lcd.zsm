@@ -1,0 +1,50 @@
+ ORG 0100h
+ LD A,56          ; initialize 16x2, 8-bit mode
+ CALL cmd_output
+ LD A,12          ; display on, cursor off
+ CALL cmd_output
+ LD A,6           ; auto increment cursor
+ CALL cmd_output
+ LD A,1           ; clear display
+ CALL cmd_output
+ LD A,128         ; put cursor at start of line 1
+ CALL cmd_output
+ LD B,16          ; process (up to) 16 characters
+ CALL input
+ LD C,2           ; BDOS: print character
+ LD E,13          ; print CR
+ CALL 5
+ LD C,2           ; BDOS: print character
+ LD E,10          ; print LF
+ CALL 5
+ LD A,192         ; put cursor at start of line 2
+ CALL cmd_output
+ LD B,16          ; process (up to) 16 characters
+ CALL input
+ RET
+input
+ PUSH BC          ; save B register count
+ LD C,1           ; BDOS: input/echo character
+ CALL 5
+ POP BC
+ CP 10
+ JR Z,crlf
+ CP 13
+ JR Z,crlf
+ CALL char_output
+ JP next
+crlf
+ LD B,1           ; skip rest of line on CR/LF
+next
+ DJNZ input
+ RET
+cmd_output
+ OUT (70h),A      ; set to command port address
+ JP busy
+char_output
+ OUT (71h),A      ; set to character port address
+busy
+ IN A,(70h)       ; set to command port address
+ RLCA
+ JR C,busy
+ RET
