@@ -20,7 +20,8 @@ display module's datasheet to ensure compatibility.
 ## The Code
 
 The example program `LCD.ZSM` is designed to work on CP/M, and can be built
-using [ZSM][2].
+using [ZSM][2]. Note that the I/O port addresses are hard-coded, and will need
+to be changed to reflect your jumper setting.
 
 [1]: https://bread80.com/2020/07/01/connecting-an-lcd-to-a-z80-with-two-glue-chips/
 [2]: https://github.com/MiguelVis/zsm
